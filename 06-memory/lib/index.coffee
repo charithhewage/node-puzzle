@@ -8,8 +8,8 @@ exports.countryIpCounter = (countryCode, cb) ->
     if err then return cb err
 
     #Grouping the date set for countryCode
-    regexp = /(.*?[\t]RU[\t][1-9|-]\d*[\n])/gi
-    data = data.match regexp
+    regexp = ///(.*?[\t]#{countryCode}[\t][1-9|-]\d*[\n])///      #/(.*?[\t]RU[\t][1-9|-]\d*[\n])/gi
+    data = data.match RegExp(regexp, 'g')
 
     counter = 0
 
